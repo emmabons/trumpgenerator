@@ -12,4 +12,4 @@ Some points I paid some extra attention to during this project were:
 
 ---
 
-You can access the prototype [right here](emmabons.github.io/trumpgenerator).
+You can access the prototype [right here](https://emmabons.github.io/trumpgenerator).
