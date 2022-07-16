@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Frontend voor Designers - Opdracht 3</title>
+  <link href="./styles/style.css" rel="stylesheet">
+  <link rel="icon" href="./images/tweetie.svg">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Keep users in control
+  Provide a natural next step
+Appearance follows behavior
+Strong visual hierarchies work best -->
+  <main>
+    <div class="tsbutton">
+      <button class="themebutton"></button>
+    </div>
+    <article>
+      <div class="blank">
+        <p>Sad you can't get any laughs from <strong>Donald Trumps</strong> Twitter feed anymore since he got blocked? <strong>Be sad no more!</strong>
+          Push the button down below to bring Donalds old tweets <strong>back to life</strong>. When you're done, press 's', or click through for a surprise.</p>
+      </div>
+      <div class="clicked">
+        <div class="head">
+          <div class="meta"><img src="./images/donaldtrump.jpg" alt="Profile picture of Donald Trump" class="pf">
+            <div><a href="index.html">Donald Trump<img src="./images/verified.svg" alt="Verified icon"
+                  class="verified"></a>
+              <p>@realDonaldTrump</p>
+            </div>
+          </div>
+          <div class="puntjes"><a href="index.html"><img src="./images/more.svg" alt="Puntjes"></a></div>
+        </div>
+
+        <div class="tweet">
+          <!--<p>cofveve</p>-->
+          <p id="tweettext"></p>
+        </div>
+
+        <div class="icons"><a href=""><img src="./images/comment.svg" alt="Comment"></a>
+          <a href=""><img src="./images/retweet.svg" alt="Retweet"></a>
+          <a href=""><img src="./images/like.svg" alt="Like"></a>
+          <a href=""><img src="./images/share.svg" alt="Share"></a></div>
+      </div>
+    </article>
+    <div class="tbdiv"><button class="tweetbutton">Get started</button></div>
+  </main>
+  <div class="background-shape"></div>
+
+  <script src="./js/opdracht.js"></script>
+  <script src="./js/confetti.js"></script>
+  <!-- Bron van confetti.js: https://www.youtube.com/watch?v=quSR_ZrVz6Y -->
+</body>
+
+</html>

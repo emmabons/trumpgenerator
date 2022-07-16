@@ -1,0 +1,507 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Default style = light */
+:root {
+    /* outline:focus */
+    --outline-focus: 2px dashed #1d9cf0;
+    /* themebutton */
+    --box-shadow-themebutton: 0px 0px 7px rgba(0, 0, 0, .1);
+    /* darkmode tekst */
+    --background-color-darkmode: #1d9cf034;
+    --color-darkmode: #1d9cf0;
+    /* main */
+    --background-color-main: #fff;
+    /* article */
+    --background-color-article: #fff;
+    --border-article: 1px solid #efefef;
+    --shadow-article: 0px 0px 15px rgba(0, 0, 0, .1);
+    /* article hover */
+    --background-color-article-hover: #fcfcfc;
+    /* .meta a */
+    --color-meta-a: #000;
+    /* .meta div p */
+    --color-meta-div-p: #657786;
+    /* .puntjes img:hover */
+    --background-color-puntjes-hover: #e6eef7;
+    /* div.tweet p (tweet tekst) */
+    --tweet-tekst-color: #000;
+
+    /* icons */
+    /* blue */
+    --background-color-icon-blue: #e6eef7;
+    /* green */
+    --background-color-icon-green: #e7f2e8;
+    /* red */
+    --background-color-icon-red: #f3e4e8;
+
+    /* background shape */
+    --background-color-shape: rgba(0, 0, 0, .03);
+
+    /* surprise button */
+    --color-button-surprise: #1d9cf0;
+    --border-color-surprise: #1d9cf0;
+}
+
+/* This code above the other declarations! These are the var values for the dark theme */
+[data-theme="dark"] {
+    /* outline:focus */
+    --outline-focus: 2px dashed #1d9cf0;
+    /* themebutton */
+    --box-shadow-themebutton: 0px 0px 7px rgba(253, 173, 0, .5);
+    /* darkmode tekst */
+    --background-color-darkmode: rgba(0, 0, 0, .2);
+    --color-darkmode: #1d9cf0;
+    /* main */
+    --background-color-main: #15202b;
+    /* article */
+    --background-color-article: #15202b;
+    --border-article: 1px solid #131d27;
+    --shadow-article: 0px 0px 15px rgba(0, 0, 0, .2);
+    /* article hover */
+    --background-color-article-hover: #131d27;
+    /* .meta a */
+    --color-meta-a: #fff;
+    /* .meta div p */
+    --color-meta-div-p: #8899A6;
+    /* .puntjes img:hover */
+    --background-color-puntjes-hover: #49a2eb1a;
+    /* div.tweet p (tweet tekst) */
+    --tweet-tekst-color: #fff;
+
+    /* icons */
+    /* blue */
+    --background-color-icon-blue: #49a2eb1a;
+    /* green */
+    --background-color-icon-green: #5abb6d1a;
+    /* red */
+    --background-color-icon-red: #cf3a601a;
+
+    /* background shape */
+    --background-color-shape: rgb(27, 40, 54, .6);
+
+    /* surprise button */
+    --color-button-surprise: #1d9cf0;
+    --border-color-surprise: #1d9cf0;
+}
+
+.clicked {
+    display: none;
+}
+
+.blank {
+    color: var(--color-meta-div-p);
+    padding: 2em;
+}
+
+.blank p {
+    font-family: 'Londrina Solid', Helvetica, Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+button,
+.tstext {
+    font-family: 'Londrina Solid', Helvetica, Arial, sans-serif;
+    ;
+    cursor: pointer;
+    font-weight: 300;
+}
+
+strong {
+    font-family: 'Londrina Solid', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    color: #1d9bf0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    background-color: var(--background-color-main);
+    transition: background-color .2s;
+}
+
+@keyframes indicator {
+    to {
+        transform: translateY(4px);
+    }
+}
+
+@keyframes indicatorh {
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.tsbutton {
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.themebutton {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    outline: none;
+    margin-right: 2em;
+    margin-left: -1.1em;
+    box-shadow: var(--box-shadow-themebutton);
+    background-color: transparent;
+    border: none;
+    transition: transform .3s;
+    background-image: url(../images/moon.svg);
+}
+
+.themebuttonsun {
+    background-image: url(../images/sun.svg);
+    background-color: transparent;
+}
+
+.themebutton:hover {
+    transform: scale(1.1);
+}
+
+.themebutton:active {
+    transform: scale(.95);
+}
+
+@keyframes circlepath {
+    from {
+        clip-path: inset(0 0 0 100%);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* SCALEN bij active */
+
+/* theme button tekst */
+.tstext {
+    background-color: #1d9cf034;
+    background-color: var(--background-color-darkmode);
+    color: #1d9bf0;
+    color: var(--color-darkmode);
+    padding: .7em 1.8em;
+    border-radius: 20px 0px 0px 20px;
+    transition: .3s;
+    animation: circlepath .5s;
+    z-index: -1;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+article {
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+    transition: background-color .2s, border .2s, box-shadow .2s;
+    background-color: var(--background-color-article);
+    border: var(--border-article);
+    box-shadow: var(--shadow-article);
+}
+
+@media only screen and (min-device-width: 50px) and (max-device-width: 600px) {
+    article {
+        width: 80vw;
+    }
+
+    .tsbutton {
+        left: auto;
+        right: auto;
+    }
+}
+
+article:hover {
+    background-color: var(--background-color-article-hover);
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.meta {
+    display: flex;
+    flex-direction: row;
+}
+
+.meta .pf {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    margin-right: 1em;
+}
+
+.meta a {
+    font-weight: 700;
+    color: var(--color-meta-a);
+    transition: color .2s;
+}
+
+.meta a:hover {
+    text-decoration: underline;
+}
+
+.meta .verified {
+    width: 1em;
+    margin-left: .3em;
+}
+
+.meta div p {
+    color: var(--color-meta-div-p);
+    transition: color .2s;
+}
+
+.puntjes img {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+}
+
+.puntjes img:hover {
+    background-color: var(--background-color-puntjes-hover);
+    content: url(../images/more-hover.svg);
+}
+
+div.tweet {
+    margin: 2em 0;
+}
+
+div.tweet p {
+    font-size: 1.2em;
+    color: var(--tweet-tekst-color);
+    transition: color .2s;
+}
+
+div.icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+div.icons a {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    transition: background-color .2s;
+    display: flex;
+}
+
+div.icons img {
+    width: 1.5em;
+    transition: content .2s;
+    margin: 0 auto;
+}
+
+div.icons a:first-of-type:hover {
+    background-color: var(--background-color-icon-blue);
+}
+
+div.icons a:first-of-type:hover img {
+    content: url(../images/comment-hover.svg);
+}
+
+div.icons a:nth-of-type(2):hover {
+    background-color: var(--background-color-icon-green);
+}
+
+div.icons a:nth-of-type(2):hover img {
+    content: url(../images/retweet-hover.svg);
+}
+
+div.icons a:nth-of-type(3):hover {
+    background-color: var(--background-color-icon-red);
+}
+
+div.icons a:nth-of-type(3):hover img {
+    content: url(../images/like-hover.svg);
+}
+
+div.icons a:nth-of-type(4):hover {
+    background-color: var(--background-color-icon-blue);
+}
+
+div.icons a:nth-of-type(4):hover img {
+    content: url(../images/share-hover.svg);
+}
+
+.tbdiv {
+    margin-top: 3em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.tbdiv button {
+    margin: 1em;
+}
+
+.tweetbutton {
+    padding: .7em 1.5em;
+    font-size: 1.1em;
+    background-color: #1d9bf0;
+    border: 4px solid #1d9bf0;
+    font-weight: 300;
+    border-radius: 50px;
+    color: white;
+    transition: color .2s, background-color .2s, border .2s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
+    -webkit-transition: transform .3s;
+    -moz-transition: transform .3s;
+    -o-transition: transform .3s;
+    transition: transform .3s;
+    transition: transform .3s;
+    animation: indicator 1s ease-in-out infinite alternate;
+}
+
+.surprisebutton {
+    padding: .7em 1.5em;
+    font-size: 1.1em;
+    background-color: transparent;
+    border: 4px solid var(--border-color-surprise);
+    font-weight: 300;
+    border-radius: 50px;
+    color: var(--color-button-surprise);
+    transition: color .2s, background-color .2s, border .2s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
+    -webkit-transition: transform .3s;
+    -moz-transition: transform .3s;
+    -o-transition: transform .3s;
+    transition: transform .3s;
+    transition: transform .3s;
+    animation: indicatorh .5s ease-in-out infinite alternate;
+}
+
+.tweetbutton:hover,
+.surprisebutton:hover {
+    transform: scale(1.05);
+    animation: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .15);
+}
+
+.tweetbutton:active,
+.surprisebutton:active {
+    animation: none;
+    box-shadow: none;
+    outline: none;
+    transform: scale(0.95);
+}
+
+.background-shape {
+    width: 100vw;
+    height: 65%;
+    background-color: var(--background-color-shape);
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 100% 0 0 0;
+    transition: background-color .2s;
+}
+
+/* OUTLINES */
+button:focus,
+a:focus {
+    outline: var(--outline-focus);
+    outline: none;
+}
+
+.active {
+    outline: none;
+}
+
+/* DARK MODE */
+
+/* main {
+    background-color: #15202b;
+}
+
+article {
+    background-color: #15202b;
+    border: 1px solid #131d27;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, .2);
+}
+
+article:hover {
+    background-color: #131d27;
+}
+
+.meta a {
+    color: #fff;
+}
+
+.meta div p {
+    color: #8899A6;
+}
+
+.puntjes img:hover {
+    background-color: #49a2eb1a;
+}
+
+div.tweet p {
+    color: #fff;
+}
+
+div.icons a:first-of-type:hover {
+    background-color: #49a2eb1a;
+}
+
+div.icons a:first-of-type img {
+    content: url(../images/comment-dark.svg);
+}
+
+div.icons a:nth-of-type(2):hover {
+    background-color: #5abb6d1a;
+}
+
+div.icons a:nth-of-type(2) img {
+    content: url(../images/retweet-dark.svg);
+}
+
+div.icons a:nth-of-type(3):hover {
+    background-color: #cf3a601a;
+}
+
+div.icons a:nth-of-type(3) img {
+    content: url(../images/like-dark.svg);
+}
+
+div.icons a:nth-of-type(4):hover {
+    background-color: #49a2eb1a;
+}
+
+
+div.icons a:nth-of-type(4) img {
+    content: url(../images/share-dark.svg);
+}
+ */
+
+/* TRANSITIONS ALL BROWSERS */
+
+/* .example {
+    -webkit-transition: background-color 500ms ease-out 1s;
+    -moz-transition: background-color 500ms ease-out 1s;
+    -o-transition: background-color 500ms ease-out 1s;
+    transition: background-color 500ms ease-out 1s;
+} */
