@@ -6,7 +6,7 @@ For this project I used the [Tronald Dump API](https://www.tronalddump.io/) to n
 
 Some points I paid some extra attention to during this project were:
 
-- Responsiveness (forgive me, it still might work best using Chrome. But I definitely gained some responsive experience)
+- Responsiveness (forgive me, it still might work best using Chrome. And it's not the best on mobile devices. But I definitely gained some responsive experience)
 - Easter eggs
 - Dark mode
 
